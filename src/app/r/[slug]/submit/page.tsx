@@ -1,11 +1,10 @@
+import Editor from "@/components/editor"
 import { Button } from "@/components/ui/Button"
 import { db } from "@/lib/db"
 import { notFound } from "next/navigation"
 
 interface PageProps {
-  params: {
-    slug: string
-  }
+  params: { slug: string }
 }
 
 
@@ -29,6 +28,8 @@ async function page({ params }: PageProps) {
         </p>
       </div>
     </div>
+
+    <Editor subredditId={subreddit.id} />
 
     <div className="w-full flex justify-end">
       <Button type="submit" className="w-full" form="subreddit-post-form">
